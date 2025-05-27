@@ -1,10 +1,14 @@
 package com.goormplay.reviewservice.review.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RatingEventDto {
     private String userId;
     private String contentId;
