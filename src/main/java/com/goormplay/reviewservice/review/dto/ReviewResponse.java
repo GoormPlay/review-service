@@ -4,8 +4,6 @@ import com.goormplay.reviewservice.review.entity.Review;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
