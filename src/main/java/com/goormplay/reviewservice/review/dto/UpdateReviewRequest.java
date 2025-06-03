@@ -20,7 +20,7 @@ public class UpdateReviewRequest {
     @Size(min = 10, max = 500, message = "Review text must be between 1 and 500 characters")
     private String comment;     // 리뷰 텍스트
 
-    @DecimalMin(value = "0.0", inclusive = true, message = "Rating must be at least 0")
-    @DecimalMax(value = "5.0", inclusive = true, message = "Rating must be at most 5")
+    @DecimalMin(value = "0.0", message = "Rating must be at least 0")
+    @DecimalMax(value = "5.0", message = "Rating must be at most 5")
     private double rating;   // 별점
 }
