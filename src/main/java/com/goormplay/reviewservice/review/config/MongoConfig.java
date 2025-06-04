@@ -26,15 +26,8 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 @EnableMongoAuditing
 public class MongoConfig {
-    private final String mongoUri;
-    private final String mongoDatabase;
-
-    public MongoConfig(@Value("${spring.data.mongodb.uri}") String mongoUri,
-                       @Value("${spring.data.mongodb.database}") String mongoDatabase) {
-        this.mongoUri = mongoUri;
-        this.mongoDatabase = mongoDatabase;
-    }
-
+    private final String mongoUri = "mongodb+srv://user:goorm0508@goorm-mongodb.svz66jf.mongodb.net/?retryWrites=true&w=majority&appName=goorm-mongoDB";
+    private final String mongoDatabase = "content-db";
     @Bean
     public MongoClient mongoClient() {
         ServerApi serverApi = ServerApi.builder()
