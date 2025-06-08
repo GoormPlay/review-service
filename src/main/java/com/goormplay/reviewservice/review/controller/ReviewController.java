@@ -26,14 +26,14 @@ public class ReviewController {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final ReviewService reviewService;
 
-    @GetMapping("/{contentId}/list")
-    public List<ReviewResponse> getReviews(@PathVariable String contentId) {
-        return reviewService.getReviews(contentId);
+    @GetMapping("/{videoId}/list")
+    public List<ReviewResponse> getReviews(@PathVariable String videoId) {
+        return reviewService.getReviews(videoId);
 
     }
 
     @PostMapping("/new")
-    public ResponseEntity<Void> createReview(@RequestParam String contentId, @RequestBody CreateReviewRequest request, Authentication authentication) {
+    public ResponseEntity<Void> createReview(@RequestParam String videoId, @RequestBody CreateReviewRequest request, Authentication authentication) {
 
         try {
 
@@ -41,13 +41,13 @@ public class ReviewController {
             Map<String, String> principal = (Map<String, String>) authentication.getPrincipal();
             request.setUserId(principal.get("memberId"));
             request.setUsername(principal.get("username"));
-            request.setContentId(contentId);
+            request.setVideoId(videoId);
 
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
 
-        reviewService.createReview(contentId, request);
+        reviewService.createReview(videoId, request);
 
         publishCreateReviewEvent(request);
         publishRatingEvent(request);

@@ -19,16 +19,16 @@ public class ReviewService {
 
     private final ReviewRepository reviewRepository;
 
-    public List<ReviewResponse> getReviews(String contentId) {
-        return reviewRepository.findByContentId(contentId).stream()
+    public List<ReviewResponse> getReviews(String videoId) {
+        return reviewRepository.findByVideoId(videoId).stream()
                 .map(ReviewResponse::of)
                 .collect(Collectors.toList());
     }
 
-    public void createReview(String contentId, CreateReviewRequest request) {
+    public void createReview(String videoId, CreateReviewRequest request) {
 
         reviewRepository.save(Review.builder().id(UUID.randomUUID().toString())
-                .contentId(contentId)
+                .videoId(videoId)
                         .username(request.getUsername())
                 .userId(request.getUserId())
                 .comment(request.getComment())
