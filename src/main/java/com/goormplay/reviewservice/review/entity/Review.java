@@ -18,13 +18,13 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@CompoundIndex(name = "content_user_idx", def = "{'contentId': 1, 'userId': 1}")//복합인덱스의 첫번째 컬럼은 혼자써도 인덱스 사용가능
+@CompoundIndex(name = "content_user_idx", def = "{'videoId': 1, 'userId': 1}")//복합인덱스의 첫번째 컬럼은 혼자써도 인덱스 사용가능
 public class Review {
     @Id
     private String id;
 
     @NotBlank(message = "Content ID cannot be blank")
-    private String contentId; // 콘텐츠 ID
+    private String videoId; // 콘텐츠 ID
 
     @NotBlank(message = "User ID cannot be blank")
     private String userId;    // 작성자 ID
