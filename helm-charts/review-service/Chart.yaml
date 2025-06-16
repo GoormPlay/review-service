@@ -1,0 +1,5 @@
+apiVersion: v2
+name: review-service
+description: A Helm chart for review-service
+version: 0.1.0
+appVersion: "1.0"
