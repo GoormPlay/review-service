@@ -2,6 +2,7 @@ apiVersion: v2
 name: review-service
 description: Helm chart for review-service
 version: 0.1.0
+type: application
 dependencies:
   - name: base-template
     version: 0.1.0
